@@ -11,7 +11,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "MI License",
+	"license": "MIT",
 	"icon": "assets/foolish-thulium/icon.png",
 	"environment": "*",
 	"entrypoints": {
