@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "foolish-thulium",
+	"version": "${version}",
+	"name": "Foolish Thulium",
+	"description": "A Random Mod about things no-one asked for.",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/foolish-thulium/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.vbinnie.foolishthulium.FoolishThulium"
+		],
+
+		"client": [
+			"net.vbinnie.foolishthulium.FoolishThuliumClient"
+		],
+		"fabric-datagen": [
+			"net.vbinnie.foolishthulium.FoolishThuliumDataGenerator"
+		]
+	},
+	"mixins": [
+		"foolish-thulium.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
