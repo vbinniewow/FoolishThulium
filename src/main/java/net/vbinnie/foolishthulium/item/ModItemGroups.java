@@ -8,6 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.vbinnie.foolishthulium.FoolishThulium;
+import net.vbinnie.foolishthulium.block.ModBlocks;
 
 public class ModItemGroups {
     public static final ItemGroup FOOLISH_THULIUM_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -18,6 +19,9 @@ public class ModItemGroups {
                         entries.add(ModItems.THULIUM_INGOT);
                         entries.add(ModItems.RAW_THULIUM);
                         entries.add(ModItems.CANCEROUS_SUBSTANCE);
+                        entries.add(ModBlocks.THULIUM_BLOCK);
+                        entries.add(ModBlocks.RAW_THULIUM_BLOCK);
+                        entries.add(ModBlocks.DEEPSLATE_THULIUM_ORE);
                     }).build());
 
 

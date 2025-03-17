@@ -21,6 +21,10 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(3f)
                     .requiresTool().sounds(BlockSoundGroup.METAL)));
 
+    public static final Block DEEPSLATE_THULIUM_ORE = registerBlock("deepslate_thulium_ore",
+            new Block(AbstractBlock.Settings.create().strength(3f)
+                    .requiresTool().sounds(BlockSoundGroup.METAL)));
+
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
@@ -36,8 +40,6 @@ public class ModBlocks {
         FoolishThulium.LOGGER.info("Registering Mod Blocks for " + FoolishThulium.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
-            entries.add(ModBlocks.THULIUM_BLOCK);
-            entries.add(ModBlocks.RAW_THULIUM_BLOCK);
         });
     }
 }

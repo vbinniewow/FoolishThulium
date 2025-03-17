@@ -2,7 +2,11 @@ package net.vbinnie.foolishthulium;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.registry.RegistryBuilder;
+import net.minecraft.registry.RegistryKeys;
 import net.vbinnie.foolishthulium.datagen.*;
+import net.vbinnie.foolishthulium.world.ModConfiguredFeatures;
+import net.vbinnie.foolishthulium.world.ModPlacedFeatures;
 
 public class FoolishThuliumDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -14,5 +18,12 @@ public class FoolishThuliumDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
+
+	}
+
+		public void buildRegistry(RegistryBuilder registryBuilder) {
+
+			registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+			registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 	}
 }

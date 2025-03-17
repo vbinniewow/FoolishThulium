@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "foolish-thulium:thulium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "foolish-thulium:thulium_ingot"
+  }
+}
