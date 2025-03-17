@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_thulium": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foolish-thulium:raw_thulium"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:thulium_ingot_from_blasting_raw_thulium"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_thulium"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:thulium_ingot_from_blasting_raw_thulium"
+    ]
+  }
+}

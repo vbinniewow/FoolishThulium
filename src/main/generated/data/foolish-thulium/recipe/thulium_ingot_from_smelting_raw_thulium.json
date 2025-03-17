@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "thulium",
+  "ingredient": {
+    "item": "foolish-thulium:raw_thulium"
+  },
+  "result": {
+    "id": "foolish-thulium:thulium_ingot"
+  }
+}
