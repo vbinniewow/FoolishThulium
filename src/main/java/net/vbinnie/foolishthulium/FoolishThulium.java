@@ -2,6 +2,10 @@ package net.vbinnie.foolishthulium;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.vbinnie.foolishthulium.block.ModBlocks;
+import net.vbinnie.foolishthulium.item.ModItemGroups;
+import net.vbinnie.foolishthulium.item.ModItems;
+import net.vbinnie.foolishthulium.util.ModTags;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +19,10 @@ public class FoolishThulium implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+		ModItemGroups.registerItemGroups();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
