@@ -1,11 +1,13 @@
 package net.vbinnie.foolishthulium.item;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.util.PlacedFeatureIndexer;
 import net.vbinnie.foolishthulium.FoolishThulium;
+import net.vbinnie.foolishthulium.entity.ModEntities;
 
 public class ModItems {
 
@@ -14,6 +16,10 @@ public class ModItems {
     public static final Item RAW_THULIUM = registerItem("raw_thulium", new Item(new Item.Settings()));
 
     public static final Item THULIUM_INGOT = registerItem("thulium_ingot", new Item(new Item.Settings()));
+
+    public static final Item CANCEROUS_RODENT_SPAWN_EGG = registerItem("cancerous_rodent_spawn_egg",
+            new SpawnEggItem(ModEntities.CANCEROUS_RODENT, 0x88ee68, 0x4dc228, new Item.Settings()));
+
 
 
     private static Item registerItem(String name, Item item) {

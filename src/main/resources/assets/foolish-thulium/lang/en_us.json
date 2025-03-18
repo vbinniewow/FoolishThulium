@@ -1,10 +1,14 @@
 {
   "item.foolish-thulium.cancerous_substance": "Cancerous Substance",
 
+  "item.foolish-thulium.cancerous_rodent_spawn_egg": "Cancerous Rodent Spawn Egg",
+
   "item.foolish-thulium.thulium_ingot": "Thulium Ingot",
   "item.foolish-thulium.raw_thulium": "Raw Thulium",
   "block.foolish-thulium.thulium_block": "Block Of Thulium",
   "block.foolish-thulium.raw_thulium_block": "Block Of Raw Thulium",
   "block.foolish-thulium.deepslate_thulium_ore": "Deepslate Thulium Ore",
-  "itemgroup.foolish-thulium.foolish_thulium_group": "Foolish Thulium"
+  "itemgroup.foolish-thulium.foolish_thulium_group": "Foolish Thulium",
+
+  "entity.foolish-thulium.cancerous_rodent": "Cancerous Rodent"
 }

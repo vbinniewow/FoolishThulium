@@ -17,15 +17,19 @@ import net.vbinnie.foolishthulium.block.ModBlocks;
 
 import java.util.List;
 
-public class ModConfiguredFeatures {public static final RegistryKey<ConfiguredFeature<?, ?>> PINK_GARNET_ORE_KEY = registerKey("pink_garnet_ore");
+public class ModConfiguredFeatures {
+    public static final RegistryKey<ConfiguredFeature<?, ?>> THULIUM_ORE_KEY = registerKey("pink_garnet_ore");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
+
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+
 
         List<OreFeatureConfig.Target> overworldPinkGarnetOres =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_THULIUM_ORE.getDefaultState()));
 
-        register(context, PINK_GARNET_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldPinkGarnetOres, 12));
+        register(context, THULIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldPinkGarnetOres, 12));
+
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

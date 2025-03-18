@@ -17,10 +17,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.THULIUM_BLOCK)
-                .add(ModBlocks.RAW_THULIUM_BLOCK);
+                .add(ModBlocks.RAW_THULIUM_BLOCK)
+                 .add(ModBlocks.DEEPSLATE_THULIUM_ORE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.THULIUM_BLOCK)
-                .add(ModBlocks.RAW_THULIUM_BLOCK);
+                .add(ModBlocks.RAW_THULIUM_BLOCK)
+                .add(ModBlocks.DEEPSLATE_THULIUM_ORE);
     }
 }

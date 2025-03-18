@@ -22,6 +22,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.THULIUM_BLOCK);
                         entries.add(ModBlocks.RAW_THULIUM_BLOCK);
                         entries.add(ModBlocks.DEEPSLATE_THULIUM_ORE);
+                        entries.add(ModItems.CANCEROUS_RODENT_SPAWN_EGG);
                     }).build());
 
 
