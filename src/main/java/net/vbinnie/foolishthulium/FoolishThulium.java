@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.vbinnie.foolishthulium.block.ModBlocks;
+import net.vbinnie.foolishthulium.effect.ModEffects;
 import net.vbinnie.foolishthulium.entity.ModEntities;
 import net.vbinnie.foolishthulium.entity.custom.CancerousRodentEntity;
 import net.vbinnie.foolishthulium.item.ModItemGroups;
@@ -29,6 +30,7 @@ public class FoolishThulium implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModWorldGeneration.generateModWorldGen();
 		ModEntities.registerModEntities();
+		ModEffects.registerEffects();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.

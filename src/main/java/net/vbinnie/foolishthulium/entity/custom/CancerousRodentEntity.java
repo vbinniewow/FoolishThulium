@@ -1,14 +1,17 @@
 package net.vbinnie.foolishthulium.entity.custom;
 
 import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.Box;
 import net.minecraft.entity.passive.AnimalEntity;
 
@@ -20,6 +23,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
+import net.vbinnie.foolishthulium.effect.ModEffects;
 import net.vbinnie.foolishthulium.entity.ModEntities;
 
 import org.jetbrains.annotations.Nullable;
@@ -75,9 +79,17 @@ public class CancerousRodentEntity extends AnimalEntity {
         super.tick();
 
         if (this.getWorld().isClient()) {
-            applyEffectsToNearbyEntities();
+
             this.setupAnimationStates();
         }
+        else {
+            applyEffectsToNearbyEntities();
+        }
+    }
+
+
+    private void applyCureToCancerRealNotFake() {
+        addStatusEffect((StatusEffectInstance) ModEffects.CANCER);
     }
 
     private void applyEffectsToNearbyEntities() {
@@ -86,11 +98,10 @@ public class CancerousRodentEntity extends AnimalEntity {
                 this.getX() + range, this.getY() + range, this.getZ() + range);
 
         List<LivingEntity> nearbyEntities = this.getWorld().getEntitiesByClass(LivingEntity.class, effectArea,
-                entity -> entity != this // Avoid affecting itself
+                entity -> entity != this && (entity instanceof LivingEntity livingEntity && !livingEntity.hasStatusEffect(ModEffects.CANCER)) // Avoid affecting itself
         );
-
         for (LivingEntity entity : nearbyEntities) {
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 100, 1)); // Example: Wither for 5 sec
+            entity.addStatusEffect(new StatusEffectInstance(ModEffects.CANCER, 600, 0));
         }
     }
 
