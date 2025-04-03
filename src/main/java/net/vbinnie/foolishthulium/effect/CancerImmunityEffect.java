@@ -21,6 +21,9 @@ public class CancerImmunityEffect extends StatusEffect {
         entity.getStatusEffect(ModEffects.CANCER); {
             entity.removeStatusEffect(ModEffects.CANCER);
         }
+        entity.getStatusEffect(ModEffects.RADIOACTIVE); {
+            entity.removeStatusEffect(ModEffects.RADIOACTIVE);
+        }
         return true;
     }
 

@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.world.World;
+import net.vbinnie.foolishthulium.damage_type.ModDamageTypes;
 
 public class CancerEffect extends StatusEffect {
     public CancerEffect(StatusEffectCategory category, int color) {
@@ -16,7 +17,7 @@ public class CancerEffect extends StatusEffect {
 
 
             if (!world.isClient() && entity.age % 100 == 0) {
-                entity.damage(world.getDamageSources().magic(), 3.0f);
+                entity.damage(ModDamageTypes.of(world, ModDamageTypes.CANCERDAMAGE), 2.0f * amplifier);
             }
             return true;
         }

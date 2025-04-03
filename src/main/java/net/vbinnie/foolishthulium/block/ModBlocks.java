@@ -26,6 +26,8 @@ public class ModBlocks {
                     .requiresTool().sounds(BlockSoundGroup.METAL)));
 
 
+
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(FoolishThulium.MOD_ID, name), block);

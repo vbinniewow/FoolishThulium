@@ -18,7 +18,10 @@ public class ModItems {
     public static final Item THULIUM_INGOT = registerItem("thulium_ingot", new Item(new Item.Settings()));
 
     public static final Item CANCEROUS_RODENT_SPAWN_EGG = registerItem("cancerous_rodent_spawn_egg",
-            new SpawnEggItem(ModEntities.CANCEROUS_RODENT, 0x88ee68, 0x4dc228, new Item.Settings()));
+            new SpawnEggItem(ModEntities.CANCEROUS_RODENT, 0x88ee68, 0x4dc228, new Item.Settings().maxCount(1)));
+
+    public static final Item HAMSTER_SPAWN_EGG = registerItem("hamster_spawn_egg",
+            new SpawnEggItem(ModEntities.HAMSTER, 0xd0bd80, 0xf0e4bd, new Item.Settings().maxCount(64)));
 
 
 

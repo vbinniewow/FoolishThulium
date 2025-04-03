@@ -3,50 +3,38 @@ package net.vbinnie.foolishthulium.entity.custom;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.item.DyeItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.DyeColor;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.Box;
-import net.minecraft.entity.passive.AnimalEntity;
-
 import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import net.vbinnie.foolishthulium.effect.ModEffects;
 import net.vbinnie.foolishthulium.entity.ModEntities;
-
 import net.vbinnie.foolishthulium.goal.FollowPlayerGoal;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
 import java.util.List;
 
-public class CancerousRodentEntity extends TameableEntity {
+public class HamsterEntity extends TameableEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    public CancerousRodentEntity(EntityType<? extends TameableEntity> entityType, World world) {
+    public HamsterEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -57,7 +45,7 @@ public class CancerousRodentEntity extends TameableEntity {
 
         this.goalSelector.add(1, new AnimalMateGoal(this, 0.5));
 
-        this.goalSelector.add(2, new TemptGoal(this, 0.25, Ingredient.ofItems(Items.ROTTEN_FLESH), false));
+        this.goalSelector.add(2, new TemptGoal(this, 0.25, Ingredient.ofItems(Items.WHEAT_SEEDS), false));
 
 
 
@@ -103,7 +91,6 @@ public class CancerousRodentEntity extends TameableEntity {
             this.setupAnimationStates();
         }
         else {
-            applyEffectsToNearbyEntities();
             this.applyCureToCancerRealNotFake();
 
         }
@@ -141,6 +128,9 @@ public class CancerousRodentEntity extends TameableEntity {
                 this.tryTame(player);
                 this.setPersistent();
             }
+            else if (Items.SHEARS == itemStack.getItem()) {
+                // add rodent hair drop
+            }
 
             return ActionResult.success(this.getWorld().isClient());
         }
@@ -170,37 +160,16 @@ public class CancerousRodentEntity extends TameableEntity {
         addStatusEffect(new StatusEffectInstance(ModEffects.CANCERIMMUNITY, 9999, 0, false, false));
     }
 
-    private void applyEffectsToNearbyEntities() {
-        double range = 10.0;
-        Box effectArea = new Box(this.getX() - range, this.getY() - range, this.getZ() - range,
-                this.getX() + range, this.getY() + range, this.getZ() + range);
-
-
-        List<LivingEntity> nearbyEntities = this.getWorld().getEntitiesByClass(LivingEntity.class, effectArea,
-                entity -> entity != this && (entity instanceof LivingEntity livingEntity && !livingEntity.hasStatusEffect(ModEffects.CANCER) & !livingEntity.hasStatusEffect(ModEffects.CANCERIMMUNITY))
-        );
-        for (LivingEntity entity : nearbyEntities) {
-            entity.addStatusEffect(new StatusEffectInstance(ModEffects.CANCER, 600, 3));
-        }
-
-        nearbyEntities = this.getWorld().getEntitiesByClass(LivingEntity.class, effectArea,
-                entity -> entity != this && (entity instanceof LivingEntity livingEntity && !livingEntity.hasStatusEffect(ModEffects.RADIOACTIVE) & !livingEntity.hasStatusEffect(ModEffects.CANCERIMMUNITY))
-        );
-        for (LivingEntity entity : nearbyEntities) {
-            entity.addStatusEffect(new StatusEffectInstance(ModEffects.RADIOACTIVE, 600, 2));
-        }
-    }
-
 
 
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.ROTTEN_FLESH);
+        return stack.isOf(Items.WHEAT_SEEDS);
     }
 
     @Override
     public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.CANCEROUS_RODENT.create(world);
+        return ModEntities.HAMSTER.create(world);
     }
 }

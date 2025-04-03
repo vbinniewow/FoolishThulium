@@ -30,7 +30,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.THULIUM_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_THULIUM, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.CANCEROUS_RODENT_SPAWN_EGG,
+        itemModelGenerator.register(ModItems.HAMSTER_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
     }

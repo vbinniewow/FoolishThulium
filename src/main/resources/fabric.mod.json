@@ -2,6 +2,9 @@
 	"schemaVersion": 1,
 	"id": "foolish-thulium",
 	"version": "${version}",
+	"accessWidener" : "foolish-thulium.accesswidener",
+
+
 	"name": "Foolish Thulium",
 	"description": "A Random Mod about things no-one asked for.",
 	"authors": [
