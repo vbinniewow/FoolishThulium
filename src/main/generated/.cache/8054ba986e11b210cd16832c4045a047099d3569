@@ -1,7 +1,7 @@
-// 1.21.1	2025-04-02T16:38:43.2229758	Foolish Thulium/Model Definitions
+// 1.21.1	2025-04-03T17:56:38.8511239	Foolish Thulium/Model Definitions
 0e31fdeacdb6eec9d19d21858aa9fe2005449a4a assets\foolish-thulium\models\block\raw_thulium_block.json
-d3499dcbd5fe98dcf81030a3fa479c0751e8d60a assets\foolish-thulium\models\block\deepslate_thulium_ore.json
 69fafc77c9e708fdfa5bc9934a9a29d096f1f34f assets\foolish-thulium\models\item\deepslate_thulium_ore.json
+d3499dcbd5fe98dcf81030a3fa479c0751e8d60a assets\foolish-thulium\models\block\deepslate_thulium_ore.json
 6782494862ccf1685596923d489a1becd85de95a assets\foolish-thulium\models\item\thulium_ingot.json
 aed61061b27adbd0d9ca29261247de5cd2b372b4 assets\foolish-thulium\blockstates\thulium_block.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\foolish-thulium\models\item\hamster_spawn_egg.json

@@ -20,6 +20,7 @@ import net.vbinnie.foolishthulium.entity.custom.CancerousRodentEntity;
 import net.vbinnie.foolishthulium.entity.custom.HamsterEntity;
 import net.vbinnie.foolishthulium.item.ModItemGroups;
 import net.vbinnie.foolishthulium.item.ModItems;
+import net.vbinnie.foolishthulium.world.gen.ModEntitySpawns;
 import net.vbinnie.foolishthulium.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,5 +71,7 @@ public class FoolishThulium implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(ModEntities.CANCEROUS_RODENT, CancerousRodentEntity.createAttribute());
 		FabricDefaultAttributeRegistry.register(ModEntities.HAMSTER, HamsterEntity.createAttribute());
+
+		ModEntitySpawns.addSpawns();
 	}
 }

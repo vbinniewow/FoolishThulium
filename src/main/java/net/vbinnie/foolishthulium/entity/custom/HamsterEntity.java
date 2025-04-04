@@ -45,16 +45,15 @@ public class HamsterEntity extends TameableEntity {
 
         this.goalSelector.add(1, new AnimalMateGoal(this, 0.5));
 
-        this.goalSelector.add(2, new TemptGoal(this, 0.25, Ingredient.ofItems(Items.WHEAT_SEEDS), false));
+        this.goalSelector.add(2, new TemptGoal(this, 0.5, Ingredient.ofItems(Items.WHEAT_SEEDS), false));
 
 
 
         this.goalSelector.add(3, new GoToVillageGoal(this, 200));
-        this.goalSelector.add(3, new FollowParentGoal(this, 0.25));
+        this.goalSelector.add(3, new FollowParentGoal(this, 0.5));
 
-        this.targetSelector.add(3, new FollowPlayerGoal(this, 0.5, 30));
         this.goalSelector.add(4, new EatGrassGoal(this));
-        this.goalSelector.add(4, new WanderAroundFarGoal(this, 0.25));
+        this.goalSelector.add(4, new WanderAroundFarGoal(this, 0.5));
 
         this.goalSelector.add(5, new FollowOwnerGoal(this, 0.5, 2, 30));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4));

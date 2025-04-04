@@ -21,7 +21,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.CANCEROUS_RODENT, 0x88ee68, 0x4dc228, new Item.Settings().maxCount(1)));
 
     public static final Item HAMSTER_SPAWN_EGG = registerItem("hamster_spawn_egg",
-            new SpawnEggItem(ModEntities.HAMSTER, 0xd0bd80, 0xf0e4bd, new Item.Settings().maxCount(64)));
+            new SpawnEggItem(ModEntities.HAMSTER, 0xffc8f3, 0xfcc0ef, new Item.Settings().maxCount(64)));
 
 
 
