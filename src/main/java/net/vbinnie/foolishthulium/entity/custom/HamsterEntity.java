@@ -1,5 +1,6 @@
 package net.vbinnie.foolishthulium.entity.custom;
 
+import net.minecraft.block.Portal;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.AnimationState;
@@ -8,7 +9,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
@@ -92,6 +95,26 @@ public class HamsterEntity extends TameableEntity {
         else {
             this.applyCureToCancerRealNotFake();
 
+            StatusEffectInstance effect = this.getStatusEffect(StatusEffects.OOZING);
+
+            if (effect != null && effect.getDuration() > 200) {
+                if (!this.getWorld().isClient) {
+                    // Create the new entity
+                    CancerousRodentEntity transformed = new CancerousRodentEntity(ModEntities.CANCEROUS_RODENT, this.getWorld());
+
+                    // Copy position and rotation
+                    transformed.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), this.getPitch());
+
+                    // Optional: Copy other data like health
+                    transformed.setHealth(this.getHealth());
+
+                    // Spawn new entity
+                    this.getWorld().spawnEntity(transformed);
+
+                    // Remove the old entity
+                    this.discard(); // Use discard() instead of kill() for custom logic
+                }
+            }
         }
     }
 
